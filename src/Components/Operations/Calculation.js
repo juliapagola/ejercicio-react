@@ -30,6 +30,9 @@ function Calculation(props) {
         else if(operator === 'divide'){
             divideHandler();
         }
+        else{
+            alert('Seleccione una operación');
+        }
     }
 
     const sumHandler = () => {
