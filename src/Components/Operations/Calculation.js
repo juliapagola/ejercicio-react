@@ -30,17 +30,16 @@ function Calculation(props) {
                     <Form.Label>Inserte un número: </Form.Label>
                     <Form.Control type="text" onChange={firstNumberHandler} value={firstNumber} />
                 </Col>
+                <Row></Row>
                 <Col>
                     <Form.Label>Inserte otro número: </Form.Label>
                     <Form.Control type="text" onChange={secondNumberHandler} value={secondNumber}/>
                 </Col>
             </Row>
-            <Row>
-                <Operators />
-            </Row>
+            <Operators />
             <Row>
                 <Col>
-                    <Button type="submit" variant="primary" >Calcular</Button>
+                    <Button type="submit" variant="dark" >Calcular</Button>
                 </Col>
             </Row>
         </Form>
