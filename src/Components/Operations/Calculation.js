@@ -54,7 +54,6 @@ function Calculation(props) {
 
     const operatorChange = (operator) =>{
         setOperator(operator);
-        alert(operator);
     }
     
   return (

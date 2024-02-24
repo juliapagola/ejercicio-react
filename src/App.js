@@ -12,8 +12,6 @@ function App() {
 
   const calculate = (result) => {
     setResult(result);
-    alert(result);
-    console.log(result);
   }
 
 
@@ -21,7 +19,7 @@ function App() {
     <div>
       <Header />
       <Calculation calculate={calculate} result = {result}/>
-      <Result />
+      <Result result={result}/>
       <Footer />
     </div>
   );
