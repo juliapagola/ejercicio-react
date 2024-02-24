@@ -6,6 +6,7 @@ function Calculation(props) {
     
     const [firstNumber, setFirstNumber] = useState(0);
     const [secondNumber, setSecondNumber] = useState(0);
+    const [operator, setOperator] = useState('');
 
     const firstNumberHandler = (event) => {
         setFirstNumber(event.target.value);
@@ -17,9 +18,44 @@ function Calculation(props) {
 
     const submitHandler = (event) => {
         event.preventDefault();
-        props.calculate(parseFloat(firstNumber) + parseFloat(secondNumber));
+        if(operator === 'sum'){
+            sumHandler();
+        }
+        else if(operator === 'substract'){
+            substractHandler();
+        }
+        else if(operator === 'multiply'){
+            multiplyHandler();
+        }
+        else if(operator === 'divide'){
+            divideHandler();
+        }
     }
 
+    const sumHandler = () => {
+        const result = parseFloat(firstNumber) + parseFloat(secondNumber);
+        props.calculate(result);
+    }
+
+    const substractHandler = () => {
+        const result = parseFloat(firstNumber) - parseFloat(secondNumber);
+        props.calculate(result);
+    }
+
+    const multiplyHandler = () => {
+        const result = parseFloat(firstNumber) * parseFloat(secondNumber);
+        props.calculate(result);
+    }
+
+    const divideHandler = () => {
+        const result = parseFloat(firstNumber) / parseFloat(secondNumber);
+        props.calculate(result);
+    }
+
+    const operatorChange = (operator) =>{
+        setOperator(operator);
+        alert(operator);
+    }
     
   return (
     <>
@@ -36,7 +72,7 @@ function Calculation(props) {
                     <Form.Control type="text" onChange={secondNumberHandler} value={secondNumber}/>
                 </Col>
             </Row>
-            <Operators />
+            <Operators operatorChange={operatorChange}/>
             <Row>
                 <Col>
                     <Button type="submit" variant="dark" >Calcular</Button>

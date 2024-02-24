@@ -2,9 +2,8 @@ import React from 'react';
 import { Col, Button} from 'react-bootstrap';
 import { useState } from 'react';
 
-function Operators() {
+function Operators(props) {
 
-    const [operator, setOperator] = useState('');
     const [variant, setVariant] = useState({
         sum: 'primary',
         substract: 'primary',
@@ -13,7 +12,7 @@ function Operators() {
     });
 
     const clickHandler = (event) => {
-        setOperator(event.target.value);
+        props.operatorChange(event.target.value);
         setVariant({
             sum: 'primary',
             substract: 'primary',
