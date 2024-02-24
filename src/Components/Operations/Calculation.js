@@ -1,11 +1,11 @@
 import { Container, Form, Row, Col, Button } from "react-bootstrap";
 import { useState } from "react";
+import Operators from "./Operators";
 
-function Calculation() {
+function Calculation(props) {
     
     const [firstNumber, setFirstNumber] = useState(0);
     const [secondNumber, setSecondNumber] = useState(0);
-    const [result, setResult] = useState(0);
 
     const firstNumberHandler = (event) => {
         setFirstNumber(event.target.value);
@@ -17,7 +17,7 @@ function Calculation() {
 
     const submitHandler = (event) => {
         event.preventDefault();
-        setResult(parseFloat(firstNumber) + parseFloat(secondNumber));
+        props.calculate(parseFloat(firstNumber) + parseFloat(secondNumber));
     }
 
     
@@ -36,13 +36,11 @@ function Calculation() {
                 </Col>
             </Row>
             <Row>
-                <Col>
-                    <Form.Label>Resultado: {result}</Form.Label>
-                </Col>
+                <Operators />
             </Row>
             <Row>
                 <Col>
-                    <Button variant="primary" >Calcular</Button>
+                    <Button type="submit" variant="primary" >Calcular</Button>
                 </Col>
             </Row>
         </Form>
